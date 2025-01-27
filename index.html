@@ -22,10 +22,11 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            text-align: center;
         }
         .menu {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
         .menu img {
@@ -95,6 +96,50 @@
             color: #a0aec0;
             margin-top: 2rem;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 500px;
+            background-color: rgba(48, 35, 2, 0.95);
+            color: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+        }
+        .modal h3 {
+            margin-top: 0;
+        }
+        .modal button {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #ffd700;
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .modal button:hover {
+            background-color: #e6c200;
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+        .modal-overlay.active, .modal.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -108,8 +153,8 @@
     <div class="sidebar">
         <a href="#welcome">Welcome</a>
         <a href="#rules">Rules</a>
-        <a href="#store">Store</a>
-        <a href="#contact">Contact</a>
+        <a href="#store" onclick="openModal('storeModal')">Store</a>
+        <a href="#contact" onclick="openModal('contactModal')">Contact</a>
     </div>
 
     <main>
@@ -132,21 +177,42 @@
             </ul>
         </section>
 
-        <section id="store" class="section">
-            <h3>Store</h3>
-            <p>Visit our official store to support the server and purchase exclusive in-game items!</p>
-            <a href="https://example.com/store" target="_blank" style="color: #ffd700; text-decoration: underline;">Go to the Store</a>
-        </section>
-
-        <footer id="contact">
+        <footer>
             <p>&copy; 2025 MineSting. All rights reserved.</p>
             <p>Contact us: minesting.mc@gmail.com</p>
         </footer>
     </main>
 
+    <!-- Modals -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <div class="modal" id="storeModal">
+        <h3>Store</h3>
+        <p>Visit our official store to support the server and purchase exclusive in-game items!</p>
+        <a href="https://example.com/store" target="_blank" style="color: #ffd700; text-decoration: underline;">Go to the Store</a>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
+    <div class="modal" id="contactModal">
+        <h3>Contact</h3>
+        <p>For inquiries, please reach out to us at:</p>
+        <p>Email: <a href="mailto:minesting.mc@gmail.com" style="color: #ffd700;">minesting.mc@gmail.com</a></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
     <script>
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.getElementById('modalOverlay').classList.add('active');
+        }
+
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('active'));
+            document.getElementById('modalOverlay').classList.remove('active');
         }
     </script>
 </body>
