@@ -43,10 +43,32 @@
         .menu a:hover {
             color: #ffd700;
         }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 250px;
+            background-color: rgba(48, 35, 2, 0.95);
+            padding: 2rem 1rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+        .sidebar a {
+            color: #f7fafc;
+            text-decoration: none;
+            display: block;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            transition: color 0.3s ease;
+        }
+        .sidebar a:hover {
+            color: #ffd700;
+        }
         main {
+            margin-left: 270px;
             padding: 6rem 1rem 1rem;
             max-width: 800px;
-            margin: 0 auto;
         }
         .section {
             background-color: rgba(186, 147, 30);
@@ -78,66 +100,47 @@
 <body>
     <header>
         <div class="menu">
-            <a href="https://discord.gg/ND9HfeysCP" target="_blank">Join the Offical MineSting Discord Today!</a>
+            <a href="https://discord.gg/ND9HfeysCP" target="_blank">Join the Official MineSting Discord Today!</a>
             <img src="https://media.discordapp.net/attachments/1330256924263845999/1333127111208079423/MinestingLOGO_MS.png?ex=6797c2df&is=6796715f&hm=bc6c41574e216b923a69986d9faf62d213c78eee0a15421d9d3d1ca9fdbf9a0a&=&format=webp&quality=lossless&width=768&height=768" alt="MineSting Logo" onclick="scrollToTop()">
-            <div></div>
         </div>
     </header>
 
+    <div class="sidebar">
+        <a href="#welcome">Welcome</a>
+        <a href="#rules">Rules</a>
+        <a href="#store">Store</a>
+        <a href="#contact">Contact</a>
+    </div>
+
     <main>
-        <section class="section">
+        <section id="welcome" class="section">
             <h2 class="text-2xl font-bold mb-4">Welcome to MineSting's Official Information Page.</h2>
             <p>In this section we will cover what rules all staff and players should follow for the best server experience for all players.</p>
         </section>
 
-        <section class="section">
-            <h3>Rule 1</h3>
-            <p>You shall respect all members of the community show respect,This includes not showing hatred,Racism and any type of Discrimination .</p>
+        <section id="rules" class="section">
+            <h3>Server Rules</h3>
+            <ul>
+                <li>Respect all members of the community.</li>
+                <li>No exploiting or hacking.</li>
+                <li>Keep the chat appropriate and avoid spamming.</li>
+                <li>Follow staff instructions and show respect to them.</li>
+                <li>Protect personal information.</li>
+                <li>Use appropriate profile pictures and names.</li>
+                <li>Do not use banned mods.</li>
+                <li>Always follow Discord's ToS.</li>
+            </ul>
         </section>
 
-        <section class="section">
-            <h3>Rule 2</h3>
-            <p>Exploting/Hacking is extremly prohibited on this server and shall never be used in any circumstance.</p>
+        <section id="store" class="section">
+            <h3>Store</h3>
+            <p>Visit our official store to support the server and purchase exclusive in-game items!</p>
+            <a href="https://example.com/store" target="_blank" style="color: #ffd700; text-decoration: underline;">Go to the Store</a>
         </section>
 
-        <section class="section">
-            <h3>Rule 3</h3>
-            <p>Members and staff should learn to keep the chat appropiate and don't an example of no to do is Spamming.</p>
-        </section>
-
-        <section class="section">
-            <h3>Rule 4</h3>
-            <p>All members shall listen to staff instructions and should show respect to staff no matter the circumstance.</p>
-        </section>
-
-        <section class="section">
-            <h3>Rule 5</h3>
-            <p>Protect personal information, Personal information shall not be shared around this server including yours or anyone elses.</p>
-        </section>
-
-        <section class="section">
-            <h3>Rule 6</h3>
-            <p>Must always have approiate profile pictures and names.</p>
-        </section>
-
-
-
-        <section class="section">
-            <h3>Rule 7</h3>
-            <p>Players should never use any banned mods indluding crystal optimsers, and maps taht show players locations.</p>
-        </section>
-
-        <section class="section">
-            <h3>Rule 8</h3>
-            <p>Always follow Discord's ToS.https://discord.com/terms.</p>
-        </section>
-        <footer>
-           <p>&copy; MineSting Contact:
-               Gmail:minesting.mc@gmail.com</p>
-        </footer>
-
-        <footer>
+        <footer id="contact">
             <p>&copy; 2025 MineSting. All rights reserved.</p>
+            <p>Contact us: minesting.mc@gmail.com</p>
         </footer>
     </main>
 
